@@ -132,296 +132,234 @@ HTML = """
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NutaShop Cloud Native</title>
+  <title>NutaShop</title>
   <style>
     :root {
-      --navy: #071b2f;
-      --blue: #0b6e99;
-      --cyan: #19b5c5;
-      --green: #16a66a;
-      --bg: #f4f7fa;
-      --card: #ffffff;
-      --text: #152536;
-      --muted: #6b7b8c;
-      --border: #e2e9ef;
-      --shadow: 0 12px 32px rgba(7, 27, 47, .08);
+      --navy:#071b2f;
+      --blue:#087ea4;
+      --cyan:#16b7c8;
+      --green:#16a66a;
+      --bg:#f5f7fa;
+      --text:#152536;
+      --muted:#6c7b8b;
+      --border:#e2e8ee;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing:border-box; }
 
     body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      color:var(--text);
+      background:var(--bg);
     }
 
     nav {
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      color: white;
-      background: var(--navy);
+      height:68px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 7%;
+      color:white;
+      background:var(--navy);
     }
 
-    .brand {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -.5px;
-    }
+    .logo { font-size:24px; font-weight:800; }
+    .logo span { color:var(--cyan); }
 
-    .brand span { color: var(--cyan); }
-
-    .nav-status {
-      color: #b8d6df;
-      font-size: 13px;
+    nav a {
+      margin-left:28px;
+      color:#d7e6ed;
+      text-decoration:none;
+      font-size:14px;
     }
 
     .hero {
-      padding: 54px 6%;
-      color: white;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(25,181,197,.34), transparent 30%),
-        linear-gradient(125deg, #071b2f, #0b6e99);
+      padding:70px 7%;
+      color:white;
+      background:linear-gradient(120deg,#071b2f,#087ea4);
     }
 
     .hero h1 {
-      max-width: 720px;
-      margin: 0 0 12px;
-      font-size: clamp(36px, 5vw, 64px);
-      line-height: 1;
-      letter-spacing: -2px;
+      max-width:650px;
+      margin:0 0 18px;
+      font-size:clamp(38px,5vw,64px);
+      line-height:1.02;
+      letter-spacing:-2px;
     }
 
     .hero p {
-      max-width: 680px;
-      margin: 0;
-      color: #d9f0f3;
-      font-size: 18px;
+      max-width:560px;
+      margin:0;
+      color:#dceff3;
+      font-size:18px;
     }
 
     .container {
-      width: min(1180px, 88%);
-      margin: 34px auto 70px;
+      width:min(1160px,86%);
+      margin:36px auto 70px;
     }
 
-    .architecture {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 28px;
+    .section-title {
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      margin-bottom:18px;
     }
 
-    .architecture-card,
-    .panel,
-    .product-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .architecture-card {
-      padding: 20px;
-    }
-
-    .architecture-card .label {
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .architecture-card h3 {
-      margin: 8px 0 4px;
-    }
-
-    .architecture-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .panel {
-      padding: 28px;
-    }
-
-    .panel h2 {
-      margin: 0 0 20px;
-      font-size: 24px;
-    }
+    h2 { margin:0; font-size:28px; }
+    .muted { color:var(--muted); }
 
     .products {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-bottom:36px;
     }
 
-    .product-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 17px;
-      box-shadow: none;
+    .product,
+    .panel {
+      padding:24px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:0 10px 28px rgba(7,27,47,.07);
     }
 
-    .product-card strong { display: block; }
-    .product-card small { color: var(--muted); }
+    .product-icon {
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      margin-bottom:20px;
+      border-radius:14px;
+      color:white;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      font-size:22px;
+    }
+
+    .product h3 { margin:0 0 8px; }
+    .product p { min-height:48px; color:var(--muted); }
 
     .price {
-      margin-left: 12px;
-      color: var(--blue);
-      font-weight: 800;
-      white-space: nowrap;
+      margin:20px 0;
+      color:var(--blue);
+      font-size:22px;
+      font-weight:800;
+    }
+
+    .content {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
     }
 
     label {
-      display: block;
-      margin: 16px 0 7px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
+      display:block;
+      margin:16px 0 7px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
     }
 
     input, select {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font: inherit;
-      background: #fbfdff;
-    }
-
-    input:focus, select:focus {
-      outline: 3px solid rgba(25,181,197,.18);
-      border-color: var(--cyan);
+      width:100%;
+      padding:13px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:#fbfdff;
+      font:inherit;
     }
 
     button {
-      width: 100%;
-      margin-top: 22px;
-      padding: 14px 18px;
-      border: 0;
-      border-radius: 10px;
-      color: white;
-      background: var(--green);
-      font: inherit;
-      font-weight: 800;
-      cursor: pointer;
+      width:100%;
+      margin-top:22px;
+      padding:14px;
+      border:0;
+      border-radius:10px;
+      color:white;
+      background:var(--green);
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
     }
 
-    button:hover { filter: brightness(.95); }
-
-    .notice {
-      margin-bottom: 18px;
-      padding: 13px 15px;
-      border-radius: 10px;
-      background: #fff4db;
-      color: #78530a;
-      font-size: 14px;
-    }
-
-    .orders {
-      margin-top: 24px;
-    }
+    button:hover { filter:brightness(.95); }
 
     .order {
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
+      padding:16px 0;
+      border-bottom:1px solid var(--border);
     }
 
-    .order:last-child { border-bottom: 0; }
+    .order:last-child { border-bottom:0; }
 
-    .order-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
+    .order-head {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
     }
 
     .order small {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
     }
 
-    .empty {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 800px) {
-      .architecture,
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .container { width: 92%; }
-      nav { padding: 0 4%; }
-      .hero { padding: 42px 4%; }
+    @media(max-width:800px) {
+      .products,.content { grid-template-columns:1fr; }
+      nav { padding:0 5%; }
+      nav a { margin-left:12px; }
+      .container { width:92%; }
+      .hero { padding:52px 5%; }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="brand">Nuta<span>Shop</span></div>
-    <div class="nav-status">● Application opérationnelle sur NKP</div>
+    <div class="logo">Nuta<span>Shop</span></div>
+    <div>
+      <a href="/">Accueil</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#commandes">Mes commandes</a>
+    </div>
   </nav>
 
   <header class="hero">
-    <h1>Modern commerce, powered by Nutanix.</h1>
+    <h1>Des solutions simples pour faire avancer votre entreprise.</h1>
     <p>
-      Une commande, une écriture PostgreSQL et un document stocké dans Objects —
-      le tout exécuté sur une plateforme Kubernetes moderne.
+      Découvrez notre sélection de solutions professionnelles et
+      passez commande en quelques clics.
     </p>
   </header>
 
   <main class="container">
-    <section class="architecture">
-      <div class="architecture-card">
-        <div class="label">Compute</div>
-        <h3>NKP</h3>
-        <p>Application conteneurisée et orchestrée par Kubernetes.</p>
+    <section id="catalogue">
+      <div class="section-title">
+        <h2>Notre catalogue</h2>
+        <span class="muted">Solutions professionnelles</span>
       </div>
-      <div class="architecture-card">
-        <div class="label">Database</div>
-        <h3>NDB · PostgreSQL</h3>
-        <p>Données transactionnelles protégées par Time Machine.</p>
-      </div>
-      <div class="architecture-card">
-        <div class="label">Storage</div>
-        <h3>Objects · S3</h3>
-        <p>Factures et documents stockés dans le bucket applicatif.</p>
+
+      <div class="products">
+        {% for product in products %}
+        <article class="product">
+          <div class="product-icon">✦</div>
+          <h3>{{ product[1] }}</h3>
+          <p>Une solution professionnelle conçue pour votre entreprise.</p>
+          <div class="price">{{ "%.2f"|format(product[2]) }} €</div>
+        </article>
+        {% endfor %}
       </div>
     </section>
 
-    <section class="layout">
+    <section class="content">
       <div class="panel">
-        <h2>Créer une commande</h2>
-
-        <div class="products">
-          {% for product in products %}
-          <div class="product-card">
-            <div>
-              <strong>{{ product[1] }}</strong>
-              <small>Service Nutanix pour applications modernes</small>
-            </div>
-            <div class="price">{{ "%.2f"|format(product[2]) }} €</div>
-          </div>
-          {% endfor %}
-        </div>
+        <h2>Finaliser une commande</h2>
+        <p class="muted">Transmettez vos informations et votre justificatif.</p>
 
         <form action="/order" method="post" enctype="multipart/form-data">
           <label for="customer">Nom du client</label>
-          <input id="customer" name="customer" placeholder="Entreprise ACME" required>
+          <input id="customer" name="customer"
+                 placeholder="Entreprise ACME" required>
 
           <label for="product_id">Produit</label>
           <select id="product_id" name="product_id" required>
@@ -433,34 +371,31 @@ HTML = """
           </select>
 
           <label for="file">Justificatif ou facture PDF</label>
-          <input id="file" name="file" type="file" accept=".pdf,application/pdf" required>
+          <input id="file" name="file" type="file"
+                 accept=".pdf,application/pdf" required>
 
-          <button type="submit">Valider la commande</button>
+          <button type="submit">Confirmer la commande</button>
         </form>
       </div>
 
-      <div class="panel">
-        <h2>Commandes récentes</h2>
+      <div class="panel" id="commandes">
+        <h2>Mes commandes</h2>
+        <p class="muted">Retrouvez ici vos dernières commandes.</p>
 
         {% if orders %}
           {% for order in orders %}
           <div class="order">
-            <div class="order-line">
-              <strong>#{{ order[0] }} · {{ order[1] }}</strong>
-              <span>{{ "%.2f"|format(order[3]) }} €</span>
+            <div class="order-head">
+              <strong>Commande #{{ order[0] }}</strong>
+              <strong>{{ "%.2f"|format(order[3]) }} €</strong>
             </div>
-            <small>{{ order[2] }} · {{ order[5] }}</small>
-            <small>Object : {{ order[4] }}</small>
+            <small>{{ order[1] }} · {{ order[2] }}</small>
+            <small>Document : {{ order[4] }}</small>
           </div>
           {% endfor %}
         {% else %}
-          <p class="empty">Aucune commande enregistrée.</p>
+          <p class="muted">Aucune commande enregistrée.</p>
         {% endif %}
-
-        <div class="notice">
-          Démo Day-2 : la base peut être clonée depuis un point-in-time
-          avec NDB Time Machine pour validation en environnement de test.
-        </div>
       </div>
     </section>
   </main>
