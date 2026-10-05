@@ -178,7 +178,7 @@ HTML = """
     .hero {
       padding:70px 7%;
       color:white;
-      background:linear-gradient(120deg,#071b2f,#087ea4);
+      background:linear-gradient(120deg,#3b0764,#7e22ce);
     }
 
     .hero h1 {
@@ -235,7 +235,7 @@ HTML = """
       margin-bottom:20px;
       border-radius:14px;
       color:white;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      background:linear-gradient(135deg,#6d28d9,#c084fc);
       font-size:22px;
     }
 
