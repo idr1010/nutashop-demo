@@ -135,14 +135,15 @@ HTML = """
   <title>NutaShop</title>
   <style>
     :root {
-      --navy:#071b2f;
-      --blue:#087ea4;
-      --cyan:#16b7c8;
-      --green:#16a66a;
-      --bg:#f5f7fa;
-      --text:#152536;
-      --muted:#6c7b8b;
-      --border:#e2e8ee;
+      --navy: #4c1d95;
+      --blue: #6d28d9;
+      --cyan: #a855f7;
+      --green: #16a66a;
+      --bg: #faf7ff;
+      --text: #24113f;
+      --muted: #76658c;
+      --border: #eadcff;
+        }
     }
 
     * { box-sizing:border-box; }
